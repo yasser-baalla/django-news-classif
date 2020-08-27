@@ -44,9 +44,11 @@ class category_info(models.Model):
     divertissement = models.BooleanField()
     monde = models.BooleanField()
     culture = models.BooleanField()
-    Local Trends = models.BooleanField()
+    local_trends = models.BooleanField()
     loi_décret = models.BooleanField()
     terrorisme = models.BooleanField()
     meteo = models.BooleanField()
     blessures = models.BooleanField()
     education = models.BooleanField()
+class temporary(models.Models):
+    link = models.CharField()
