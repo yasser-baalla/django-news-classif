@@ -5,7 +5,7 @@ from django.db import models
 
 class category(models.Model):
     url = models.CharField()
-    id_cat = models.Charfield(primary_key=True)
+    id_cat = models.ForeignKey(category_info, on_delete=models.CASCADE)
     pos_neg = models.Charfield()
     simp_comp = models.Charfield()
     title = models.Charfield()
@@ -13,7 +13,7 @@ class category(models.Model):
 
 
 class category_info(models.Model):
-    id_cat = models.ForeignKey(category, on_delete=models.CASCADE)
+    id_cat = models.Charfield(primary_key=True)
     politique = models.BooleanField()
     parties_politiques = models.BooleanField()
     parlement = models.BooleanField()
