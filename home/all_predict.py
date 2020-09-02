@@ -1,9 +1,4 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[49]:
-
-
+# -*- coding: utf-8 -*-
 import csv
 import os
 import pickle
@@ -58,17 +53,19 @@ def all_predict(link):
     for i in range(1,a.shape[1]) :
         if a[0][i] == 1 :
             id_cat.append(i)
+    pn = 2
     for i in range(pn_prediction[0].shape[0]) :
-        if(pn_prediction[0][i]) :
+        if(pn_prediction[0][i] == 1) :
             pn = i
             break
     if(pn == 0) :
         pn = "positif"
     elif(pn == 1) :
-        pn = "négatif"
+        pn = "negatif"
     else : 
         pn = "neutre"
     #print(pn)
+    cs = 1
     for i in range(cs_prediction[0].shape[0]) :
         if(cs_prediction[0][i] == 1) :
             cs = i
@@ -81,8 +78,6 @@ def all_predict(link):
     return id_cat,pn,cs
     
 
-
-# In[ ]:
 
 
 
