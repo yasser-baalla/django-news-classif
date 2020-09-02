@@ -6,7 +6,7 @@ from django.db import models
 
 
 class category_info(models.Model):
-    id_cat = models.CharField(primary_key=True)
+    id_cat = models.CharField(primary_key=True, max_length = 100)
     politique = models.BooleanField()
     parties_politiques = models.BooleanField()
     parlement = models.BooleanField()
@@ -45,12 +45,12 @@ class category_info(models.Model):
     education = models.BooleanField()
 
 class category(models.Model):
-    url = models.CharField()
+    url = models.CharField(max_length = 100)
     id_cat = models.ForeignKey(category_info, on_delete=models.CASCADE)
-    pos_neg = models.CharField()
-    simp_comp = models.CharField()
-    title = models.CharField()
-    image = models.CharField()
+    pos_neg = models.CharField(max_length = 100)
+    simp_comp = models.CharField(max_length = 100)
+    title = models.CharField(max_length = 100)
+    image = models.CharField(max_length = 100)
 
 class temporary(models.Model):
-    link = models.CharField()
+    link = models.CharField(max_length = 100)
