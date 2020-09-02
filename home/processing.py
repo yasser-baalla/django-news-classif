@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
-from polling import *
-from nlp import nlp
-from all_predict import all_predict
+from home.polling import *
+from home.scraping import *
+from home.nlp import nlp
+from home.all_predict import all_predict
 def process_hespress(link,title) :
     link = link
     url,image = hespress(link)

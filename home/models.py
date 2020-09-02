@@ -6,7 +6,7 @@ from django.core.validators import validate_comma_separated_integer_list
 
 
 class category_info(models.Model):
-    id_cat = models.CharField(primary_key=True,validators=[validate_comma_separated_integer_list],max_length=200, blank=True, null=True,default='')
+    id_cat = models.CharField(primary_key=True, null=False,max_length=100)
     politique = models.BooleanField()
     parties_politiques = models.BooleanField()
     parlement = models.BooleanField()
@@ -46,7 +46,7 @@ class category_info(models.Model):
 
 class category(models.Model):
     url = models.CharField(max_length = 100)
-    id_cat = models.ForeignKey(category_info, on_delete=models.CASCADE)
+    id_cat= models.CharField(validators=[validate_comma_separated_integer_list],max_length=200, blank=True)
     pos_neg = models.CharField(max_length = 100)
     simp_comp = models.CharField(max_length = 100)
     title = models.CharField(max_length = 100)

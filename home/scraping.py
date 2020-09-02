@@ -12,16 +12,17 @@ def hespress(url):
     article = content.find_all('p')
     url = url.replace('https://fr.hespress.com/','')
     url = url.replace(".html",'')
-    url = "hespress\\"+ url+".txt"
-    f = open(url, "w", encoding="utf-8")
-    f.write(title)
-    f.write("\n")
-    for p in article :
-        for text in p :
-            if text.string != None :
-                f.write(text.string)
-    f.write("\n")
-    f.close()
+    url2 = "C:\\Users\\lenovo\\Downloads\\django\\myProject\\home\\hespress\\"+ url+".txt"
+    with open(url2, "w", encoding="utf-8") as f :
+        f.write(title)
+        f.write("\n")
+        for p in article :
+            for text in p :
+                if text.string != None :
+                    f.write(text.string)
+        f.write("\n")
+        f.close() 
+    url = "hespress\\"+ url +".txt"
     return url,image
 
 def afrique(url):

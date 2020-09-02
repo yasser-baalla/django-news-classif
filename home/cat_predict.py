@@ -21,20 +21,21 @@ from sklearn.preprocessing import MinMaxScaler
 # In[2]:
 
 def cat_predict(link):
-    with open('pickled\\CC\\scaler.pickle', 'rb') as f:
+    root = "C:\\Users\\lenovo\\Downloads\\django\\myProject\\home\\"
+    with open(root+'pickled\\CC\\scaler.pickle', 'rb') as f:
         scaler = pickle.load(f)
-    with open('pickled\\CC\\vectorizer.pickle', 'rb') as f:
+    with open(root+'pickled\\CC\\vectorizer.pickle', 'rb') as f:
         vectorizer = pickle.load(f)
-    with open('pickled\\CC\\classifier.pickle', 'rb') as f:
+    with open(root+'pickled\\CC\\classifier.pickle', 'rb') as f:
         CC = pickle.load(f)
-    with open('pickled\\CC\\scaler2.pickle', 'rb') as f:
+    with open(root+'pickled\\CC\\scaler2.pickle', 'rb') as f:
         scaler2 = pickle.load(f)
     # with open('pickled\\CC\\encoder.pickle', 'rb') as f :
     #     mlb = pickle.load(f)
 
     # In[3]:
 
-    with open(link, "r", encoding="utf-8") as inp:
+    with open(root+link, "r", encoding="utf-8") as inp:
         X_manual = json.load(inp)
         X_manual_len = len(X_manual)
     X_num_digit = 0

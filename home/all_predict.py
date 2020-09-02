@@ -12,26 +12,26 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.multiclass import OneVsRestClassifier
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.multiclass import OneVsRestClassifier
-from cat_predict import *
+from home.cat_predict import *
 
 
 def all_predict(link):
-
+    root = "C:\\Users\\lenovo\\Downloads\\django\\myProject\\home\\"
     cat_prediction = cat_predict(link)
 
-    with open("pickled\\PN\\vectorizer.pickle", "rb") as f:
+    with open(root+"pickled\\PN\\vectorizer.pickle", "rb") as f:
         pn_vectorizer = pickle.load(f)
-    with open("pickled\\PN\\classifier.pickle", "rb") as f:
+    with open(root+"pickled\\PN\\classifier.pickle", "rb") as f:
         pn_OVR = pickle.load(f)
 
-    with open("pickled\\CS\\vectorizer.pickle", "rb") as f:
+    with open(root+"pickled\\CS\\vectorizer.pickle", "rb") as f:
         cs_vectorizer = pickle.load(f)
-    with open("pickled\\CS\\classifier.pickle", "rb") as f:
+    with open(root+"pickled\\CS\\classifier.pickle", "rb") as f:
         cs_OVR = pickle.load(f)
-    with open("pickled\\CS\\scaler.pickle", "rb") as f:
+    with open(root+"pickled\\CS\\scaler.pickle", "rb") as f:
         cs_scaler = pickle.load(f)
 
-    with open(link, "r", encoding="utf-8") as inp:
+    with open(root+link, "r", encoding="utf-8") as inp:
         X_manual = json.load(inp)
         X_manual_len = len(X_manual)
     X_manual = np.array(X_manual).reshape(1, -1)
