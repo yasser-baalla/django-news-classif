@@ -1,12 +1,12 @@
 from django.db import models
-
+from django.core.validators import validate_comma_separated_integer_list
 # Create your models here.
 
 
 
 
 class category_info(models.Model):
-    id_cat = models.CharField(primary_key=True, max_length = 100)
+    id_cat = models.CharField(primary_key=True,validators=[validate_comma_separated_integer_list],max_length=200, blank=True, null=True,default='')
     politique = models.BooleanField()
     parties_politiques = models.BooleanField()
     parlement = models.BooleanField()
