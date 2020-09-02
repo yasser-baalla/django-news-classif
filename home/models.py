@@ -47,10 +47,10 @@ class category_info(models.Model):
 class category(models.Model):
     url = models.CharField()
     id_cat = models.ForeignKey(category_info, on_delete=models.CASCADE)
-    pos_neg = models.Charfield()
-    simp_comp = models.Charfield()
-    title = models.Charfield()
-    image = models.Charfield()
+    pos_neg = models.CharField()
+    simp_comp = models.CharField()
+    title = models.CharField()
+    image = models.CharField()
 
-class temporary(models.Models):
+class temporary(models.Model):
     link = models.CharField()
