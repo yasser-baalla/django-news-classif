@@ -3,13 +3,6 @@ from django.db import models
 # Create your models here.
 
 
-class category(models.Model):
-    url = models.CharField()
-    id_cat = models.ForeignKey(category_info, on_delete=models.CASCADE)
-    pos_neg = models.Charfield()
-    simp_comp = models.Charfield()
-    title = models.Charfield()
-    image = models.Charfield()
 
 
 class category_info(models.Model):
@@ -50,5 +43,14 @@ class category_info(models.Model):
     meteo = models.BooleanField()
     blessures = models.BooleanField()
     education = models.BooleanField()
+
+class category(models.Model):
+    url = models.CharField()
+    id_cat = models.ForeignKey(category_info, on_delete=models.CASCADE)
+    pos_neg = models.Charfield()
+    simp_comp = models.Charfield()
+    title = models.Charfield()
+    image = models.Charfield()
+
 class temporary(models.Models):
     link = models.CharField()
