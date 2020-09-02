@@ -7,6 +7,8 @@ def hespress(url):
     soup = bs4.BeautifulSoup(res.content,"lxml")
     title = soup.find("h1").string
     content = soup.find("div",{"class":"content"})
+    image = content.find("img")
+    image = image["src"]
     article = content.find_all('p')
     url = url.replace('https://fr.hespress.com/','')
     url = url.replace(".html",'')
@@ -20,10 +22,14 @@ def hespress(url):
                 f.write(text.string)
     f.write("\n")
     f.close()
-    return url
+    return url,image
+
 def afrique(url):
     res = requests.get(url)
     soup = bs4.BeautifulSoup(res.content,"lxml")
+    image = soup.find("div",{"class":"holder_img"})
+    image = image.find("img")
+    image = image["src"]
     title = soup.find("h1",{"class":"ttl"}).string
     chapeau = soup.find("p",{"class":"catchline"})
     content = soup.find("div",{"id":"content"})
@@ -43,10 +49,14 @@ def afrique(url):
                 f.write(text.string)
     f.write("\n")
     f.close()
-    return url
+    return url,image
+
 def le360(url):
     res = requests.get(url)
     soup = bs4.BeautifulSoup(res.content,"lxml")
+    image = soup.find("div",{"class":"full-item"})
+    image = image.find("img")
+    image = image["src"]
     content = soup.find("div",{"class":"articles-holder"})
     title = content.find("h1").string
     content = soup.find("div",{"class":"ctn"})
@@ -70,10 +80,14 @@ def le360(url):
                     f.write(text.string)
     f.write("\n")
     f.close()
-    return url
+    return url,image
+
 def leseco(url):
     res = requests.get(url)
     soup = bs4.BeautifulSoup(res.content,"lxml")
+    image = soup.find("div",{"class":"featured-area"})
+    image = image.find("img")
+    image = image["src"]
     title = soup.find("h1",{"class":"post-title entry-title"}).string
     content = soup.find("div",{"class":"entry-content entry clearfix"})
     article = content.find_all('p')
@@ -89,10 +103,14 @@ def leseco(url):
                 f.write(text.string)
     f.write("\n")
     f.close()
-    return url
+    return url,image
+
 def sport(url):
     res = requests.get(url)
     soup = bs4.BeautifulSoup(res.content,"lxml")
+    image = soup.find("div",{"class":"image"})
+    image = image.find("img")
+    image = image["src"]
     title = soup.find("h1",{"class":"titre-article"}).string
     chapeau = soup.find("div",{"class":"chapeau"})
     content = soup.find("div",{"class":"wysiwyg"})
@@ -113,10 +131,14 @@ def sport(url):
                 f.write(text.string)
     f.write("\n")
     f.close()
-    return url
+    return url,image
+
 def welovebuzz(url):
     res = requests.get(url)
     soup = bs4.BeautifulSoup(res.content,"lxml")
+    image = soup.find("div",{"class":"article_content"})
+    image = image.find("img")
+    image = image["src"]
     title = soup.find("h2",{"id":"title"}).string
     content = soup.find("div",{"class":"article_content"})
     article = content.find_all('p')
@@ -133,5 +155,5 @@ def welovebuzz(url):
                     f.write(text.string)
     f.write("\n")
     f.close()
-    return url
+    return url,image
 
