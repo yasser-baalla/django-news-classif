@@ -6,7 +6,7 @@ from django.db import models
 
 
 class category_info(models.Model):
-    id_cat = models.Charfield(primary_key=True)
+    id_cat = models.CharField(primary_key=True)
     politique = models.BooleanField()
     parties_politiques = models.BooleanField()
     parlement = models.BooleanField()
