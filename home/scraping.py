@@ -1,7 +1,7 @@
 import requests
 import bs4
 import sys
-
+root = "C:\\Users\\lenovo\\Downloads\\django\\myProject\\home\\"
 def hespress(url):
     res = requests.get(url)
     soup = bs4.BeautifulSoup(res.content,"lxml")
@@ -12,7 +12,7 @@ def hespress(url):
     article = content.find_all('p')
     url = url.replace('https://fr.hespress.com/','')
     url = url.replace(".html",'')
-    url2 = "C:\\Users\\lenovo\\Downloads\\django\\myProject\\home\\hespress\\"+ url+".txt"
+    url2 = root+"hespress\\"+ url+".txt"
     with open(url2, "w", encoding="utf-8") as f :
         f.write(title)
         f.write("\n")
@@ -36,7 +36,7 @@ def afrique(url):
     content = soup.find("div",{"id":"content"})
     url = url.split("/")
     url = url[len(url)-1]
-    url = "afrique.le360\\"+ url+".txt"
+    url = root+"afrique360\\"+ url+".txt"
     f = open(url, "w", encoding="utf-8")
     f.write(title)
     f.write("\n")
@@ -50,6 +50,7 @@ def afrique(url):
                 f.write(text.string)
     f.write("\n")
     f.close()
+    url = "afrique360\\"+ url+".txt"
     return url,image
 
 def le360(url):
@@ -68,7 +69,7 @@ def le360(url):
         article = content.find_all('p')
     url = url.split("/")
     url = url[len(url)-1]
-    url = "le360\\"+ url+".txt"
+    url = root+"le360\\"+ url+".txt"
     f = open(url, "w", encoding="utf-8")
     f.write(title)
     f.write("\n")
@@ -81,6 +82,7 @@ def le360(url):
                     f.write(text.string)
     f.write("\n")
     f.close()
+    url = "le360\\"+ url+".txt"
     return url,image
 
 def leseco(url):
@@ -94,7 +96,7 @@ def leseco(url):
     article = content.find_all('p')
     url = url.replace('https://leseco.ma/','')
     url = url.replace("/",'')
-    url = "leseco\\"+ url+".txt"
+    url = root+"leseco\\"+ url+".txt"
     f = open(url, "w", encoding="utf-8")
     f.write(title)
     f.write("\n")
@@ -104,6 +106,7 @@ def leseco(url):
                 f.write(text.string)
     f.write("\n")
     f.close()
+    url = "leseco\\"+ url+".txt"
     return url,image
 
 def sport(url):
@@ -118,7 +121,7 @@ def sport(url):
     article = content.find_all('p')
     url = url.split("/")
     url = url[len(url)-1]
-    url = "sport.le360\\"+ url+".txt"
+    url = root+"sport360\\"+ url+".txt"
     f = open(url, "w", encoding="utf-8")
     f.write(title)
     f.write("\n")
@@ -132,6 +135,7 @@ def sport(url):
                 f.write(text.string)
     f.write("\n")
     f.close()
+    url = "sport360\\"+ url+".txt"
     return url,image
 
 def welovebuzz(url):
@@ -145,7 +149,7 @@ def welovebuzz(url):
     article = content.find_all('p')
     url = url.replace('https://www.welovebuzz.com/','')
     url = url.replace("/",'')   
-    url = "welovebuzz\\"+ url+".txt"
+    url = root+"welovebuzz\\"+ url+".txt"
     f = open(url, "w", encoding="utf-8")
     f.write(title)
     f.write("\n")
@@ -156,5 +160,6 @@ def welovebuzz(url):
                     f.write(text.string)
     f.write("\n")
     f.close()
+    url = "welovebuzz\\"+ url+".txt"
     return url,image
 
