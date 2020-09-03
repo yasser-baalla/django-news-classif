@@ -19,7 +19,60 @@ def home(request) :
             link,path,title,image,id_cat,posneg,comsim = process_hespress(link,title)
             a = category(url=link,id_cat=id_cat,pos_neg=posneg,simp_comp=comsim,title=title,image=image)
             a.save()
-            print("the data has been written to the db")
+            print("the hespress data has been written to the db")
+            time.sleep(60)
+        link,title = afrique360_polling()
+        q2 = category.objects.filter(url=link)
+        q3 = category.objects.filter(title=title)
+        if(q2.count() != 0 or q3.count() != 0) :
+            time.sleep(60)
+        else :
+            link,path,title,image,id_cat,posneg,comsim = process_afrique(link,title)
+            a = category(url=link,id_cat=id_cat,pos_neg=posneg,simp_comp=comsim,title=title,image=image)
+            a.save()
+            print("the afrique data has been written to the db")
+            time.sleep(60)
+        link,title = le360_polling()
+        q4 = category.objects.filter(url=link)
+        q5 = category.objects.filter(title=title)
+        if(q4.count() != 0 or q5.count() != 0) :
+            time.sleep(60)
+        else :
+            link,path,title,image,id_cat,posneg,comsim = process_le360(link,title)
+            a = category(url=link,id_cat=id_cat,pos_neg=posneg,simp_comp=comsim,title=title,image=image)
+            a.save()
+            print("the 360 data has been written to the db")
+            time.sleep(60)
+        link,title = sport360_polling()
+        q6 = category.objects.filter(url=link)
+        q7 = category.objects.filter(title=title)
+        if(q6.count() != 0 or q7.count() != 0) :
+            time.sleep(60)
+        else :
+            link,path,title,image,id_cat,posneg,comsim = process_sport(link,title)
+            a = category(url=link,id_cat=id_cat,pos_neg=posneg,simp_comp=comsim,title=title,image=image)
+            a.save()
+            print("the sport data has been written to the db")
+            time.sleep(60)
+        link,title = welovebuzz_polling()
+        q8 = category.objects.filter(url=link,title=title)
+        if(q8.count() != 0 ) :
+            time.sleep(60)
+        else :
+            link,path,title,image,id_cat,posneg,comsim = process_welovebuzz(link,title)
+            a = category(url=link,id_cat=id_cat,pos_neg=posneg,simp_comp=comsim,title=title,image=image)
+            a.save()
+            print("the welovebuzz data has been written to the db")
+            time.sleep(60)
+        link,title = leseco_polling()
+        q8 = category.objects.filter(url=link,title=title)
+        if(q8.count() != 0 ) :
+            time.sleep(60)
+        else :
+            link,path,title,image,id_cat,posneg,comsim = process_leseco(link,title)
+            a = category(url=link,id_cat=id_cat,pos_neg=posneg,simp_comp=comsim,title=title,image=image)
+            a.save()
+            print("the leseco data has been written to the db")
             time.sleep(60)
     if request.method == "POST" :
         print(json.loads(request.body))
