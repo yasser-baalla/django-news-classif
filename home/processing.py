@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from home.polling import *
+# from home.polling import *
 from home.scraping import *
 from home.nlp import nlp
 from home.all_predict import all_predict

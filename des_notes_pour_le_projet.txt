@@ -1,0 +1,2 @@
+je dois ajouter le champs de date dans la table category
+if covid == True : sante == True

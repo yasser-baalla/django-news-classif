@@ -36,8 +36,8 @@ def afrique(url):
     content = soup.find("div",{"id":"content"})
     url = url.split("/")
     url = url[len(url)-1]
-    url = root+"afrique360\\"+ url+".txt"
-    f = open(url, "w", encoding="utf-8")
+    url2 = root+"afrique360\\"+ url+".txt"
+    f = open(url2, "w", encoding="utf-8")
     f.write(title)
     f.write("\n")
     for text in chapeau :
@@ -69,8 +69,8 @@ def le360(url):
         article = content.find_all('p')
     url = url.split("/")
     url = url[len(url)-1]
-    url = root+"le360\\"+ url+".txt"
-    f = open(url, "w", encoding="utf-8")
+    url2 = root+"le360\\"+ url+".txt"
+    f = open(url2, "w", encoding="utf-8")
     f.write(title)
     f.write("\n")
     if type(article) == str :
@@ -96,8 +96,8 @@ def leseco(url):
     article = content.find_all('p')
     url = url.replace('https://leseco.ma/','')
     url = url.replace("/",'')
-    url = root+"leseco\\"+ url+".txt"
-    f = open(url, "w", encoding="utf-8")
+    url2 = root+"leseco\\"+ url+".txt"
+    f = open(url2, "w", encoding="utf-8")
     f.write(title)
     f.write("\n")
     for p in article :
@@ -121,8 +121,8 @@ def sport(url):
     article = content.find_all('p')
     url = url.split("/")
     url = url[len(url)-1]
-    url = root+"sport360\\"+ url+".txt"
-    f = open(url, "w", encoding="utf-8")
+    url2 = root+"sport360\\"+ url+".txt"
+    f = open(url2, "w", encoding="utf-8")
     f.write(title)
     f.write("\n")
     for text in chapeau :
@@ -141,16 +141,13 @@ def sport(url):
 def welovebuzz(url):
     res = requests.get(url)
     soup = bs4.BeautifulSoup(res.content,"lxml")
-    image = soup.find("div",{"class":"article_content"})
-    image = image.find("img")
-    image = image["src"]
     title = soup.find("h2",{"id":"title"}).string
     content = soup.find("div",{"class":"article_content"})
     article = content.find_all('p')
     url = url.replace('https://www.welovebuzz.com/','')
     url = url.replace("/",'')   
-    url = root+"welovebuzz\\"+ url+".txt"
-    f = open(url, "w", encoding="utf-8")
+    url2 = root+"welovebuzz\\"+ url+".txt"
+    f = open(url2, "w", encoding="utf-8")
     f.write(title)
     f.write("\n")
     for p in article :
@@ -160,6 +157,12 @@ def welovebuzz(url):
                     f.write(text.string)
     f.write("\n")
     f.close()
+    image = soup.find("div",{"class":"article_content"})
+    image = image.find("img")
+    if(image == None) :
+        image = "welovebuzz"
+    else : 
+        image = image["src"]
     url = "welovebuzz\\"+ url+".txt"
     return url,image
 
