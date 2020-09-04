@@ -51,28 +51,44 @@ cat_dict = {
 }
 
 while True :
-    link,title = leseco_polling()
-    q1 = category.objects.filter(url=link,title=title)
-    q2 = temporary.objects.filter(link=link)
-    if(q1.count() != 0 or q2.count() != 0) :
-        print("Waiting for leseco...")
-        time.sleep(60)
-    else :
-        link,path,title,image,id_cat,posneg,comsim = process_leseco(link,title)
-        db_cat = []
-        if(bool(id_cat) == False) :
-            base_db = temporary(link=link)
-            base_db.save()
-            print("the leseco data has been written to the temp db")
+    try :
+        link,title = leseco_polling()
+        q1 = category.objects.filter(url=link,title=title)
+        q2 = temporary.objects.filter(link=link)
+        if(q1.count() != 0 or q2.count() != 0) :
+            print("Waiting for leseco...")
+            time.sleep(60)
         else :
-            for i in range(len(id_cat)) :
-                db_cat.append(cat_dict[str(id_cat[i])])
-            base_db = category(url=link,pos_neg=posneg,simp_comp=comsim,title=title,image=image)
-            cat_db = category_info()
-            for i in range(len(db_cat)) :
-                setattr(cat_db, db_cat[i],True)
-            base_db.save()
-            cat_db.save()
-            print("the leseco data has been written to the db")
-
+            link,path,title,image,id_cat,posneg,comsim,source = process_leseco(link,title)
+            db_cat = []
+            if(bool(id_cat) == False) :
+                base_db = temporary(link=link)
+                base_db.save()
+                print("the leseco data has been written to the temp db")
+            else :
+                for i in range(len(id_cat)) :
+                    db_cat.append(cat_dict[str(id_cat[i])])
+                base_db = category(url=link,pos_neg=posneg,simp_comp=comsim,title=title,image=image,source=source)
+                cat_db = category_info()
+                for i in range(len(db_cat)) :
+                    setattr(cat_db, db_cat[i],True)
+                base_db.save()
+                cat_db.save()
+                print("the leseco data has been written to the db")
+    except :
+        with open("logs.txt","a+","utf-8") as f :
+            f.write(datetime.today().strftime('[%Y-%m-%d-%H:%M:%S]'))
+            f.write(sys.exc_info())
+            print("""
+            
+            
+            
+            
+            
+            error occured from leseco
+            
+            
+            
+            
+            """)
 

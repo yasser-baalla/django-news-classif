@@ -1,2 +1,11 @@
-je dois ajouter le champs de date dans la table category
 if covid == True : sante == True
+if 9 in id_cat : id_cat.append(10)
+si la recherche est égale à un champ == (field = recherche)
+# Open a file: file
+file = open('my_text_file',mode='r')
+ 
+# read all lines at once
+all_of_it = file.read()
+ 
+# close the file
+file.close() 

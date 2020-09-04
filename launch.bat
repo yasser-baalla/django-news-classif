@@ -1,6 +1,6 @@
-start python launch_afrique.py
-start python launch_hespress.py
-start python launch_welovebuzz.py
-start python launch_leseco.py
-start python launch_le360.py
-start python launch_sport.py
+start python -W ignore launch_afrique.py
+start python -W ignore launch_hespress.py
+start python -W ignore launch_welovebuzz.py
+start python -W ignore launch_leseco.py
+start python -W ignore launch_le360.py
+start python -W ignore launch_sport.py
