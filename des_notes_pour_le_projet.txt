@@ -9,3 +9,4 @@ all_of_it = file.read()
  
 # close the file
 file.close() 
+cmder issues 
