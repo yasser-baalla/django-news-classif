@@ -154,7 +154,5 @@ def home(request):
 @csrf_exempt
 def home2(request):
     if request.method == "POST" :
-        print(type(json.loads(request.body)))
-        print(type(request.body))
-        print("exited")
+        print(request.body.decode("utf-8"))
     return HttpResponseRedirect(request.META.get('HTTP_REFERER',"/"))
