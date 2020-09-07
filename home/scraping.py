@@ -13,6 +13,7 @@ def hespress(url):
     url = url.replace('https://fr.hespress.com/','')
     url = url.replace(".html",'')
     url2 = root+"hespress\\"+ url+".txt"
+    myArticle = ""
     with open(url2, "w", encoding="utf-8") as f :
         f.write(title)
         f.write("\n")
@@ -20,10 +21,12 @@ def hespress(url):
             for text in p :
                 if text.string != None :
                     f.write(text.string)
+                    myArticle += text.string
+                    myArticle += " "
         f.write("\n")
         f.close() 
     url = "hespress\\"+ url +".txt"
-    return url,image
+    return url,image,myArticle
 
 def afrique(url):
     res = requests.get(url)
@@ -44,10 +47,13 @@ def afrique(url):
         if text.string != None :
             f.write(text.string)
     f.write("\n")
+    myArticle = ""
     for text in content :
         if text.string != None :
             if ">>>LIRE AUSSI:" not in text.string :
                 f.write(text.string)
+                myArticle += text.string
+                myArticle += " "
     f.write("\n")
     f.close()
     url = "afrique360\\"+ url+".txt"
@@ -73,17 +79,21 @@ def le360(url):
     f = open(url2, "w", encoding="utf-8")
     f.write(title)
     f.write("\n")
+    myArticle = ""
     if type(article) == str :
         f.write(article)
+        myArticle += article.strip()
     else :
         for p in article :
             for text in p :
                 if text.string != None :
                     f.write(text.string)
+                    myArticle += text.string.strip()
+                    myArticle += " "
     f.write("\n")
     f.close()
     url = "le360\\"+ url+".txt"
-    return url,image
+    return url,image,myArticle
 
 def leseco(url):
     res = requests.get(url)
@@ -100,14 +110,17 @@ def leseco(url):
     f = open(url2, "w", encoding="utf-8")
     f.write(title)
     f.write("\n")
+    myArticle = ""
     for p in article :
         for text in p :
             if text.string != None :
                 f.write(text.string)
+                myArticle += text.string
+                myArticle += " "
     f.write("\n")
     f.close()
     url = "leseco\\"+ url+".txt"
-    return url,image
+    return url,image,myArticle
 
 def sport(url):
     res = requests.get(url)
@@ -125,18 +138,23 @@ def sport(url):
     f = open(url2, "w", encoding="utf-8")
     f.write(title)
     f.write("\n")
+    myArticle = ""
     for text in chapeau :
         if text.string != None :
             f.write(text.string)
+            myArticle += text.string.strip()
+            myArticle += " "
     f.write("\n")
     for p in article :
         for text in p :
             if text.string != None :
                 f.write(text.string)
+                myArticle += text.string.strip()
+                myArticle += " "
     f.write("\n")
     f.close()
     url = "sport360\\"+ url+".txt"
-    return url,image
+    return url,image,myArticle 
 
 def welovebuzz(url):
     res = requests.get(url)
@@ -150,11 +168,14 @@ def welovebuzz(url):
     f = open(url2, "w", encoding="utf-8")
     f.write(title)
     f.write("\n")
+    myArticle = ""
     for p in article :
         for text in p :
             if text.string != None :
                 if "Publicité" not in text.string:
                     f.write(text.string)
+                    myArticle += text.string
+                    myArticle += " "
     f.write("\n")
     f.close()
     image = soup.find("div",{"class":"article_content"})
@@ -164,5 +185,5 @@ def welovebuzz(url):
     else : 
         image = image["src"]
     url = "welovebuzz\\"+ url+".txt"
-    return url,image
+    return url,image,myArticle 
 

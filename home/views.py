@@ -54,11 +54,62 @@ import re
 def home(request):
     if request.method == "POST":
         myDict = json.loads(request.body)['cat']
-        print(myDict)
+        mySearch = json.loads(request.body)['search']
+        print(mySearch)
+        mySearch = mySearch.lower()
+        cat_search = ["politique","parlement","economie","tourisme","bourse","immobilier","société","rumeurs","statistiques","célébrité","divertissement","monde","culture","terrorisme","meteo","education","santé","covid","agriculture","espace","nature","animaux","religion","revue"]
+        cat2_search = ["parties politiques","réseaux sociaux","local trends","eid el adha","revue de presse","revue du web"]
+        if mySearch.strip() :
+            if( mySearch in cat_search ) :
+                if( mySearch == "politique") :
+                    q1 = category_info.objects.filter(politique=True)
+                    articles = []
+                    for i in range(len(q1)) :
+                        myId = q1[i].id_cat_info
+                        articles.append(category.objects.filter(id_cat = myId))
+                    articles = articles
+                if( mySearch == "parlement") :
+                    q1 = category_info.objects.filter(parlement=True)
+                    articles = []
+                    for i in range(len(q1)) :
+                        myId = q1[i].id_cat_info
+                        articles.append(category.objects.filter(id_cat = myId))
+                    articles = articles
+                if( mySearch == "economie") :
+                    q1 = category_info.objects.filter(economie=True)
+                    articles = []
+                    for i in range(len(q1)) :
+                        myId = q1[i].id_cat_info
+                        articles.append(category.objects.filter(id_cat = myId))
+                    articles = articles
+                if( mySearch == "tourisme") :
+                    q1 = category_info.objects.filter(politique=True)
+                    articles = []
+                    for i in range(len(q1)) :
+                        myId = q1[i].id_cat_info
+                        articles.append(category.objects.filter(id_cat = myId))
+                    articles = articles
+            elif( mySearch in cat2_search ) :
+                if(mySearch == "local trends") :
+                    mySearch.upper()
+                    mySearch.replace(" ","_")
+                    articles = category_info.objects.filter(mySearch=True).order_by('-date')
+                else :
+                    mySearch.replace(" ","_")
+                    articles = category_info.objects.filter(mySearch=True)
+            elif( mySearch == "blessures" or mySearch == "décès" or mySearch == "accidents") :
+                articles = category_info.objects.filter(blessures_accidents_et_décès=True).order_by('-date')
+            elif( mySearch == "loi" or mySearch == "décret") :
+                articles = category_info.objects.filter(loi_et_décret=True).order_by('-category__date')
+            elif( mySearch == "histoire" or mySearch == "football") :
+                mySearch = mySearch.capitalise()
+                articles = category_info.objects.filter(Histoire=True).order_by('-date')
+            else : 
+                articles = category.objects.order_by('-date')
         if 'tag' in myDict :
             field = myDict['tag']
             if(field == "sources") :
-                pass
+                articles = category.objects.order_by('-date')
             elif(field == "le360" or field == "lesEco" or field == "hespress" or field == "welovebuzz" or field == "le360 sport" or field == "le360 afrique") :
                 articles = category.objects.filter(source=field).order_by('-date')
             elif(field == "complexe" or field == "simple") :
@@ -147,7 +198,7 @@ def home(request):
             categories_final.append(a)
         data = "["
         for i in range(len(final_articles)) :
-            var = '{"source":"' + final_articles[i].source + '","title":"' + final_articles[i].title + '","date":"' + final_articles[i].date.strftime('%d/%m/%Y - %H:%M:%S') + '","content":"' + final_articles[i].url + '","image":"' + final_articles[i].image + '","cat":' + re.sub("([a-z])_([a-z])","\\1 \\2",str(categories_final[i]).replace("'",'"')) + '},'
+            var = '{"source":"' + final_articles[i].source + '","title":"' + final_articles[i].title.replace('"','') + '","date":"' + final_articles[i].date.strftime('%d/%m/%Y - %H:%M:%S') + '","content":"' + final_articles[i].url + '","image":"' + final_articles[i].image + '","cat":' + re.sub("([a-z])_([a-z])","\\1 \\2",str(categories_final[i]).replace("'",'"')) + '},'
             data = data + var
         if data == "[" :
             data = '{ "dataError" : true }'

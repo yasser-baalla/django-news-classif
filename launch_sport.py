@@ -1,4 +1,4 @@
-import os
+import os as os
 import django
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "myProject.settings")
 django.setup()
@@ -9,6 +9,7 @@ from home.scraping import *
 from home.processing import *
 import json
 import time
+from datetime import datetime
 
 cat_dict = {
     "1" : "politique",
@@ -77,9 +78,12 @@ while True :
                 cat_db.save()
                 print("the le360sport data has been written to the db")
     except :
-        with open("logs.txt","a+","utf-8") as f :
+        with open("logs.txt",mode="a+") as f :
             f.write(datetime.today().strftime('[%Y-%m-%d-%H:%M:%S]'))
-            f.write(sys.exc_info())
+            f.write("from sport : ")
+            for i in sys.exc_info():
+                f.write(str(i))
+            f.write("\n")
             print("""
             
             
@@ -92,4 +96,4 @@ while True :
             
             
             """)
-
+        time.sleep(60)

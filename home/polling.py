@@ -12,6 +12,8 @@ def hespress_polling():
     result = polling2.poll(lambda: requests.get('https://fr.hespress.com/'),
                            step=60,
                            poll_forever=True,
+                           ignore_exceptions=(
+                               requests.exceptions.ConnectionError,),
                            check_success=test)
     soup = bs4.BeautifulSoup(result.content, "lxml")
     content = soup.find("div", {"class": "h24-b"})

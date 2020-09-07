@@ -2,10 +2,18 @@ from django.db import models
 # Create your models here.
 
 
-
+class category(models.Model):
+    url = models.CharField(max_length = 300)
+    id_cat= models.AutoField( primary_key=True, null=False)
+    pos_neg = models.CharField(max_length = 100)
+    simp_comp = models.CharField(max_length = 100)
+    title = models.CharField(max_length = 300)
+    image = models.CharField(max_length = 300)
+    source = models.CharField(max_length=50)
+    date = models.DateTimeField(auto_now_add=True)
 
 class category_info(models.Model):
-    id_cat_info = models.AutoField(primary_key=True,null=False)
+    id_cat_info = models.AutoField( primary_key=True, null=False)
     politique = models.BooleanField(default=False)
     parties_politiques = models.BooleanField(default=False)
     parlement = models.BooleanField(default=False)
@@ -43,15 +51,6 @@ class category_info(models.Model):
     blessures_accidents_et_décès = models.BooleanField(default=False)
     education = models.BooleanField(default=False)
 
-class category(models.Model):
-    url = models.CharField(max_length = 300)
-    id_cat= models.AutoField( primary_key=True, null=False)
-    pos_neg = models.CharField(max_length = 100)
-    simp_comp = models.CharField(max_length = 100)
-    title = models.CharField(max_length = 300)
-    image = models.CharField(max_length = 300)
-    source = models.CharField(max_length=50)
-    date = models.DateTimeField(auto_now_add=True)
 
 class temporary(models.Model):
     link = models.CharField(max_length = 300)

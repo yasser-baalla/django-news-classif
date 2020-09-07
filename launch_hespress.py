@@ -1,4 +1,4 @@
-import os
+import os as os
 import django
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "myProject.settings")
 django.setup()
@@ -78,9 +78,12 @@ while True :
                 cat_db.save()
                 print("the hespress data has been written to the db")
     except :
-        with open("logs.txt","a+","utf-8") as f :
+        with open("logs.txt",mode="a+") as f :
             f.write(datetime.today().strftime('[%Y-%m-%d-%H:%M:%S]'))
-            f.write(sys.exc_info())
+            f.write("from hespress : ")
+            for i in sys.exc_info():
+                f.write(str(i))
+            f.write("\n")
             print("""
             
             
@@ -93,3 +96,4 @@ while True :
             
             
             """)
+        time.sleep(60)

@@ -1,6 +1,7 @@
-if covid == True : sante == True
-if 9 in id_cat : id_cat.append(10)
-si la recherche est égale à un champ == (field = recherche)
+1) if covid == True : sante == True
+if 9 in id_cat : id_cat.append(10) : DONE
+2) si la recherche est égale à un champ == (field = recherche)
+3) ajouter un champ contenant le contenu des articles 
 # Open a file: file
 file = open('my_text_file',mode='r')
  
@@ -9,4 +10,7 @@ all_of_it = file.read()
  
 # close the file
 file.close() 
-cmder issues 
+4) cmder issues
+5) **proposition d'ajout d'un dictionnaire pour chaque field
+6) **est ce que side bar peut retourner à sa place si on appuie sur notre choix 
+7) fuseau horaire
