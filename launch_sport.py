@@ -61,7 +61,7 @@ while True :
             print("Waiting for Messi...")
             time.sleep(60)
         else :
-            link,path,title,image,id_cat,posneg,comsim,source = process_sport(link,title)
+            link,path,title,image,id_cat,posneg,comsim,source,article = process_sport(link,title)
             db_cat = []
             if(bool(id_cat) == False) :
                 base_db = temporary(link=link)
@@ -70,7 +70,7 @@ while True :
             else :
                 for i in range(len(id_cat)) :
                     db_cat.append(cat_dict[str(id_cat[i])])
-                base_db = category(url=link,pos_neg=posneg,simp_comp=comsim,title=title,image=image,source=source)
+                base_db = category(url=link,pos_neg=posneg,simp_comp=comsim,title=title,image=image,source=source,article = article)
                 cat_db = category_info()
                 for i in range(len(db_cat)) :
                     setattr(cat_db, db_cat[i],True)

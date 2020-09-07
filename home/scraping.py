@@ -57,7 +57,7 @@ def afrique(url):
     f.write("\n")
     f.close()
     url = "afrique360\\"+ url+".txt"
-    return url,image
+    return url,image,myArticle
 
 def le360(url):
     res = requests.get(url)

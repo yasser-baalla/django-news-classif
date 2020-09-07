@@ -11,6 +11,7 @@ class category(models.Model):
     image = models.CharField(max_length = 300)
     source = models.CharField(max_length=50)
     date = models.DateTimeField(auto_now_add=True)
+    article = models.CharField(max_length=10000)
 
 class category_info(models.Model):
     id_cat_info = models.AutoField( primary_key=True, null=False)

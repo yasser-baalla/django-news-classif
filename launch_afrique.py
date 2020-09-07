@@ -3,7 +3,6 @@ import django
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "myProject.settings")
 django.setup()
 
-
 from home.polling import *
 from home.scraping import *
 from home.processing import *
@@ -11,7 +10,6 @@ import json
 import time
 from datetime import datetime
 from home.models import category, category_info, temporary
-
 
 cat_dict = {
     "1": "politique",
@@ -63,7 +61,7 @@ while True:
             print("Waiting for africa...")
             time.sleep(60)
         else:
-            link, path, title, image, id_cat, posneg, comsim, source = process_afrique(
+            link, path, title, image, id_cat, posneg, comsim, source, article = process_afrique(
                 link, title)
             db_cat = []
             if(bool(id_cat) == False):
@@ -74,7 +72,7 @@ while True:
                 for i in range(len(id_cat)):
                     db_cat.append(cat_dict[str(id_cat[i])])
                 base_db = category(
-                    url=link, pos_neg=posneg, simp_comp=comsim, title=title, image=image, source=source)
+                    url=link, pos_neg=posneg, simp_comp=comsim, title=title, image=image, source=source, article=article)
                 cat_db = category_info()
                 for i in range(len(db_cat)):
                     setattr(cat_db, db_cat[i], True)

@@ -9,7 +9,7 @@ def test(response):
 
 def hespress_polling():
     links = []
-    result = polling2.poll(lambda: requests.get('https://fr.hespress.com/'),
+    result = polling2.poll(lambda: requests.get('https://fr.hespress.com/', timeout=5),
                            step=60,
                            poll_forever=True,
                            ignore_exceptions=(
@@ -37,7 +37,7 @@ def is_last_hespress(last_title):
 
 def afrique360_polling():
     links = []
-    result = polling2.poll(lambda: requests.get('http://afrique.le360.ma/'),
+    result = polling2.poll(lambda: requests.get('http://afrique.le360.ma/', timeout=5),
                            step=60,
                            poll_forever=True,
                            ignore_exceptions=(
@@ -57,17 +57,9 @@ def afrique360_polling():
 # print(last_link,last_title)
 
 
-def is_last_afrique360(last_title):
-    last_link2, last_title2 = afrique360_polling()
-    while(last_title == last_title2):
-        last_link2, last_title2 = afrique360_polling()
-    else:
-        process(last_link2)
-
-
 def le360_polling():
     links = []
-    result = polling2.poll(lambda: requests.get('https://fr.le360.ma/'),
+    result = polling2.poll(lambda: requests.get('https://fr.le360.ma/', timeout=5),
                            step=60,
                            poll_forever=True,
                            ignore_exceptions=(
@@ -88,17 +80,9 @@ def le360_polling():
 # print(last_link,last_title)
 
 
-def is_last_le360(last_title):
-    last_link2, last_title2 = le360_polling()
-    while(last_title == last_title2):
-        last_link2, last_title2 = le360_polling()
-    else:
-        process(last_link2)
-
-
 def sport360_polling():
     links = []
-    result = polling2.poll(lambda: requests.get('https://sport.le360.ma/'),
+    result = polling2.poll(lambda: requests.get('https://sport.le360.ma/', timeout=5),
                            step=60,
                            poll_forever=True,
                            ignore_exceptions=(
@@ -118,17 +102,10 @@ def sport360_polling():
 # print(last_link,last_title)
 
 
-def is_last_sport360(last_title):
-    last_link2, last_title2 = sport360_polling()
-    while(last_title == last_title2):
-        last_link2, last_title2 = sport360_polling()
-    else:
-        process(last_link2)
-
 
 def welovebuzz_polling():
     links = []
-    result = polling2.poll(lambda: requests.get('https://www.welovebuzz.com/'),
+    result = polling2.poll(lambda: requests.get('https://www.welovebuzz.com/', timeout=5),
                            step=60,
                            poll_forever=True,
                            ignore_exceptions=(
@@ -154,18 +131,11 @@ def welovebuzz_polling():
 # print(last_link,last_title)
 
 
-def is_last_welovebuzz(last_title):
-    last_link2, last_title2 = sport360_polling()
-    while(last_title == last_title2):
-        last_link2, last_title2 = sport360_polling()
-    else:
-        process(last_link2)
-
 
 def leseco_polling():
     links = []
     titles = []
-    result = polling2.poll(lambda: requests.get('https://leseco.ma/'),
+    result = polling2.poll(lambda: requests.get('https://leseco.ma/', timeout=5),
                            step=60,
                            poll_forever=True,
                            ignore_exceptions=(
@@ -190,11 +160,3 @@ def leseco_polling():
     return last_link, last_title
 # last_link,last_title = leseco_polling()
 # print(last_link,last_title)
-
-
-def is_last_lesecos(last_title):
-    last_link2, last_title2 = sport360_polling()
-    while(last_title == last_title2):
-        last_link2, last_title2 = sport360_polling()
-    else:
-        process(last_link2)
