@@ -3,14 +3,14 @@ import django
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "myProject.settings")
 django.setup()
 
-
-from home.polling import *
-from home.scraping import *
-from home.processing import *
-import json
-import time
-from datetime import datetime
 from home.models import category, category_info, temporary
+from datetime import datetime
+import time
+import json
+from home.processing import *
+from home.scraping import *
+from home.polling import *
+
 
 
 cat_dict = {
@@ -61,7 +61,7 @@ while True:
             print("Waiting for leseco...")
             time.sleep(60)
         else:
-            link, path, title, image, id_cat, posneg, comsim, source,article = process_leseco(
+            link, path, title, image, id_cat, posneg, comsim, source, article = process_leseco(
                 link, title)
             db_cat = []
             if(bool(id_cat) == False):
@@ -76,6 +76,7 @@ while True:
                 cat_db = category_info()
                 for i in range(len(db_cat)):
                     setattr(cat_db, db_cat[i], True)
+                    article = article + " " + db_cat[i].replace("_"," ").lower()
                 cat_db.article = title + " " + article
                 base_db.save()
                 cat_db.save()

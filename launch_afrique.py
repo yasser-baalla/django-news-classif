@@ -76,6 +76,7 @@ while True:
                 cat_db = category_info()
                 for i in range(len(db_cat)):
                     setattr(cat_db, db_cat[i], True)
+                    article = article + " " + db_cat[i].replace("_"," ").lower()
                 cat_db.article = title + " " + article
                 base_db.save()
                 cat_db.save()

@@ -127,3 +127,6 @@ LINE 1: ... "simp_comp", "title", "image", "source", "date", "article")...
 LINE 1: ... "simp_comp", "title", "image", "source", "date", "article")...
                                                              ^
 <traceback object at 0x0E719B28>
+[2020-09-10-20:51:00]from le360 : <class 'requests.exceptions.ReadTimeout'>HTTPSConnectionPool(host='fr.le360.ma', port=443): Read timed out. (read timeout=5)<traceback object at 0x0150A9C8>
+[2020-09-10-20:56:09]from le360 : <class 'requests.exceptions.ReadTimeout'>HTTPSConnectionPool(host='fr.le360.ma', port=443): Read timed out. (read timeout=5)<traceback object at 0x018F5B08>
+[2020-09-10-21:49:12]from sport : <class 'requests.exceptions.ReadTimeout'>HTTPSConnectionPool(host='sport.le360.ma', port=443): Read timed out. (read timeout=5)<traceback object at 0x016D2D68>
