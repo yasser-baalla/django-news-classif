@@ -72,10 +72,11 @@ while True:
                 for i in range(len(id_cat)):
                     db_cat.append(cat_dict[str(id_cat[i])])
                 base_db = category(
-                    url=link, pos_neg=posneg, simp_comp=comsim, title=title, image=image, source=source,article = article)
+                    url=link, pos_neg=posneg, simp_comp=comsim, title=title, image=image, source=source)
                 cat_db = category_info()
                 for i in range(len(db_cat)):
                     setattr(cat_db, db_cat[i], True)
+                cat_db.article = title + " " + article
                 base_db.save()
                 cat_db.save()
                 print("the welovebuzz data has been written to the db")

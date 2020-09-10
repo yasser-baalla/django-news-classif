@@ -11,7 +11,6 @@ class category(models.Model):
     image = models.CharField(max_length = 300)
     source = models.CharField(max_length=50)
     date = models.DateTimeField(auto_now_add=True)
-    article = models.CharField(max_length=10000)
 
 class category_info(models.Model):
     id_cat_info = models.AutoField( primary_key=True, null=False)
@@ -51,6 +50,7 @@ class category_info(models.Model):
     meteo = models.BooleanField(default=False)
     blessures_accidents_et_décès = models.BooleanField(default=False)
     education = models.BooleanField(default=False)
+    article = models.CharField(max_length=10000)
 
 
 class temporary(models.Model):

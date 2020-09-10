@@ -4,3 +4,4 @@
 		     c- Share data(number of pages / 12)
 		     d- x == 0 ==> page == 1
 		     e- exit_session()
+icon html embed
