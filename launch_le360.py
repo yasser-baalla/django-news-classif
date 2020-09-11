@@ -6,10 +6,13 @@ django.setup()
 from home.models import category, category_info, temporary
 from datetime import datetime
 import time
-import json
+import json,unicodedata
 from home.processing import *
 from home.scraping import *
 from home.polling import *
+
+def strip_accents(s) :
+    return ''.join(c for c in unicodedata.normalize('NFD', s) if unicodedata.category(c) != 'Mn' )
 
 
 
@@ -69,6 +72,8 @@ while True:
             else:
                 link, path, title, image, id_cat, posneg, comsim, source, article = process_le360(
                     link, title)
+                article = article.lower()
+                article = strip_accents(article)
                 db_cat = []
                 if(bool(id_cat) == False):
                     base_db = temporary(link=link)
@@ -83,6 +88,8 @@ while True:
                     for i in range(len(db_cat)):
                         setattr(cat_db, db_cat[i], True)
                         article = article + " " + db_cat[i].replace("_"," ").lower()
+                    title = title.lower()
+                    title = strip_accents(title)
                     cat_db.article = title + " " + article
                     base_db.save()
                     cat_db.save()

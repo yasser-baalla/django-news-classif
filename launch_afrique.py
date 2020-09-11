@@ -7,9 +7,10 @@ from home.polling import *
 from home.scraping import *
 from home.processing import *
 import json
-import time
+import time,unicodedata
 from datetime import datetime
 from home.models import category, category_info, temporary
+
 
 cat_dict = {
     "1": "politique",
@@ -50,6 +51,8 @@ cat_dict = {
     "36": "religion",
     "37": "revue",
 }
+def strip_accents(s) :
+    return ''.join(c for c in unicodedata.normalize('NFD', s) if unicodedata.category(c) != 'Mn' )
 
 while True:
     try:
@@ -63,6 +66,8 @@ while True:
         else:
             link, path, title, image, id_cat, posneg, comsim, source, article = process_afrique(
                 link, title)
+            article = article.lower()
+            article = strip_accents(article)
             db_cat = []
             if(bool(id_cat) == False):
                 base_db = temporary(link=link)
@@ -77,6 +82,8 @@ while True:
                 for i in range(len(db_cat)):
                     setattr(cat_db, db_cat[i], True)
                     article = article + " " + db_cat[i].replace("_"," ").lower()
+                title = title.lower()
+                title = strip_accents(title)
                 cat_db.article = title + " " + article
                 base_db.save()
                 cat_db.save()

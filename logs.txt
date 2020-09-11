@@ -130,3 +130,46 @@ LINE 1: ... "simp_comp", "title", "image", "source", "date", "article")...
 [2020-09-10-20:51:00]from le360 : <class 'requests.exceptions.ReadTimeout'>HTTPSConnectionPool(host='fr.le360.ma', port=443): Read timed out. (read timeout=5)<traceback object at 0x0150A9C8>
 [2020-09-10-20:56:09]from le360 : <class 'requests.exceptions.ReadTimeout'>HTTPSConnectionPool(host='fr.le360.ma', port=443): Read timed out. (read timeout=5)<traceback object at 0x018F5B08>
 [2020-09-10-21:49:12]from sport : <class 'requests.exceptions.ReadTimeout'>HTTPSConnectionPool(host='sport.le360.ma', port=443): Read timed out. (read timeout=5)<traceback object at 0x016D2D68>
+[2020-09-10-22:04:39]from sport : <class 'requests.exceptions.ReadTimeout'>HTTPSConnectionPool(host='sport.le360.ma', port=443): Read timed out. (read timeout=5)<traceback object at 0x118015A8>
+[2020-09-10-22:19:58]from sport : <class 'requests.exceptions.ReadTimeout'>HTTPSConnectionPool(host='sport.le360.ma', port=443): Read timed out. (read timeout=5)<traceback object at 0x016338A8>
+[2020-09-10-22:35:12]from sport : <class 'requests.exceptions.ReadTimeout'>HTTPSConnectionPool(host='sport.le360.ma', port=443): Read timed out. (read timeout=5)<traceback object at 0x11D7AFA8>
+[2020-09-10-23:10:06]from le360 : <class 'NameError'>name 'unicodedata' is not defined<traceback object at 0x13874E48>
+[2020-09-10-23:11:09]from le360 : <class 'NameError'>name 'unicodedata' is not defined<traceback object at 0x00F77C88>
+[2020-09-10-23:12:10]from le360 : <class 'NameError'>name 'unicodedata' is not defined<traceback object at 0x0274D6E8>
+[2020-09-10-23:13:12]from le360 : <class 'NameError'>name 'unicodedata' is not defined<traceback object at 0x13694708>
+[2020-09-10-23:14:14]from le360 : <class 'NameError'>name 'unicodedata' is not defined<traceback object at 0x136DF528>
+[2020-09-10-23:15:16]from le360 : <class 'NameError'>name 'unicodedata' is not defined<traceback object at 0x11662E48>
+[2020-09-10-23:16:18]from le360 : <class 'NameError'>name 'unicodedata' is not defined<traceback object at 0x0274FAE8>
+[2020-09-10-23:17:09]from hespress : <class 'NameError'>name 'unicodedata' is not defined<traceback object at 0x0179B4E8>
+[2020-09-10-23:17:15]from sport : <class 'NameError'>name 'unicodedata' is not defined<traceback object at 0x112E4BA8>
+[2020-09-10-23:17:18]from leseco : <class 'NameError'>name 'unicodedata' is not defined<traceback object at 0x0333D4C8>
+[2020-09-10-23:17:21]from le360 : <class 'NameError'>name 'unicodedata' is not defined<traceback object at 0x1151F9E8>
+[2020-09-10-23:18:15]from hespress : <class 'NameError'>name 'unicodedata' is not defined<traceback object at 0x1417D4C8>
+[2020-09-10-23:18:15]from welovebuzz : <class 'NameError'>name 'unicodedata' is not defined<traceback object at 0x13F6F788>
+[2020-09-10-23:18:15]from le360 : <class 'NameError'>name 'unicodedata' is not defined<traceback object at 0x1359DA28>
+[2020-09-10-23:18:15]from leseco : <class 'NameError'>name 'unicodedata' is not defined<traceback object at 0x1375FCE8>
+[2020-09-10-23:18:16]from afrique : <class 'NameError'>name 'unicodedata' is not defined<traceback object at 0x13BD3A68>
+[2020-09-10-23:18:19]from sport : <class 'NameError'>name 'unicodedata' is not defined<traceback object at 0x14124B28>
+[2020-09-10-23:19:16]from welovebuzz : <class 'NameError'>name 'unicodedata' is not defined<traceback object at 0x01B62708>
+[2020-09-10-23:19:17]from le360 : <class 'NameError'>name 'unicodedata' is not defined<traceback object at 0x02CF38C8>
+[2020-09-10-23:19:17]from hespress : <class 'NameError'>name 'unicodedata' is not defined<traceback object at 0x11BDEEE8>
+[2020-09-10-23:19:18]from leseco : <class 'NameError'>name 'unicodedata' is not defined<traceback object at 0x112EDEE8>
+[2020-09-10-23:19:19]from afrique : <class 'NameError'>name 'unicodedata' is not defined<traceback object at 0x1175FAA8>
+[2020-09-10-23:19:20]from sport : <class 'NameError'>name 'unicodedata' is not defined<traceback object at 0x0EFAD568>
+[2020-09-10-23:19:56]from afrique : <class 'NameError'>name 'unicodedata' is not defined<traceback object at 0x13D139E8>
+[2020-09-10-23:19:56]from welovebuzz : <class 'NameError'>name 'unicodedata' is not defined<traceback object at 0x13E0F748>
+[2020-09-10-23:19:56]from hespress : <class 'NameError'>name 'unicodedata' is not defined<traceback object at 0x1398D4E8>
+[2020-09-10-23:19:57]from le360 : <class 'NameError'>name 'unicodedata' is not defined<traceback object at 0x1379D9C8>
+[2020-09-10-23:19:59]from leseco : <class 'NameError'>name 'unicodedata' is not defined<traceback object at 0x1382ECA8>
+[2020-09-10-23:20:00]from sport : <class 'NameError'>name 'unicodedata' is not defined<traceback object at 0x135F4D68>
+[2020-09-11-10:22:51]from sport : <class 'requests.exceptions.ReadTimeout'>HTTPSConnectionPool(host='sport.le360.ma', port=443): Read timed out. (read timeout=5)<traceback object at 0x11B71E48>
+[2020-09-11-10:38:03]from sport : <class 'requests.exceptions.ReadTimeout'>HTTPSConnectionPool(host='sport.le360.ma', port=443): Read timed out. (read timeout=5)<traceback object at 0x034CD2A8>
+[2020-09-11-12:00:04]from le360 : <class 'requests.exceptions.ReadTimeout'>HTTPSConnectionPool(host='fr.le360.ma', port=443): Read timed out. (read timeout=5)<traceback object at 0x117DC8C8>
+[2020-09-11-12:10:15]from le360 : <class 'requests.exceptions.ReadTimeout'>HTTPSConnectionPool(host='fr.le360.ma', port=443): Read timed out. (read timeout=5)<traceback object at 0x11835528>
+[2020-09-11-13:11:30]from sport : <class 'requests.exceptions.ReadTimeout'>HTTPSConnectionPool(host='sport.le360.ma', port=443): Read timed out. (read timeout=5)<traceback object at 0x116C8A48>
+[2020-09-11-14:10:31]from sport : <class 'requests.exceptions.ReadTimeout'>HTTPSConnectionPool(host='sport.le360.ma', port=443): Read timed out. (read timeout=5)<traceback object at 0x13DAA048>
+[2020-09-11-14:54:57]from le360 : <class 'requests.exceptions.ReadTimeout'>HTTPSConnectionPool(host='fr.le360.ma', port=443): Read timed out. (read timeout=5)<traceback object at 0x13DC4DE8>
+[2020-09-11-15:00:04]from le360 : <class 'requests.exceptions.ReadTimeout'>HTTPSConnectionPool(host='fr.le360.ma', port=443): Read timed out. (read timeout=5)<traceback object at 0x03339828>
+[2020-09-11-15:14:02]from sport : <class 'requests.exceptions.ReadTimeout'>HTTPSConnectionPool(host='sport.le360.ma', port=443): Read timed out. (read timeout=5)<traceback object at 0x034F6588>
+[2020-09-11-16:15:41]from leseco : <class 'django.db.utils.DataError'>ERREUR:  valeur trop longue pour le type character varying(10000)
+<traceback object at 0x00FF1628>
