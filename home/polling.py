@@ -9,11 +9,12 @@ def test(response):
 
 def hespress_polling():
     links = []
-    result = polling2.poll(lambda: requests.get('https://fr.hespress.com/', timeout=5),
+    result = polling2.poll(lambda: requests.get('https://fr.hespress.com/', timeout=10),
                            step=60,
                            poll_forever=True,
                            ignore_exceptions=(
-                               requests.exceptions.ConnectionError,),
+                               requests.exceptions.ConnectionError,
+                               requests.exceptions.ReadTimeout,),
                            check_success=test)
     soup = bs4.BeautifulSoup(result.content, "lxml")
     content = soup.find("div", {"class": "h24-b"})
@@ -37,11 +38,12 @@ def is_last_hespress(last_title):
 
 def afrique360_polling():
     links = []
-    result = polling2.poll(lambda: requests.get('http://afrique.le360.ma/', timeout=5),
+    result = polling2.poll(lambda: requests.get('http://afrique.le360.ma/', timeout=10),
                            step=60,
                            poll_forever=True,
                            ignore_exceptions=(
-                               requests.exceptions.ConnectionError,),
+                               requests.exceptions.ConnectionError,
+                               requests.exceptions.ReadTimeout,),
                            check_success=test)
     soup = bs4.BeautifulSoup(result.content, "lxml")
     content = soup.find("div", {"class": "view-display-id-chrono_list"})
@@ -59,11 +61,12 @@ def afrique360_polling():
 
 def le360_polling():
     links = []
-    result = polling2.poll(lambda: requests.get('https://fr.le360.ma/', timeout=5),
+    result = polling2.poll(lambda: requests.get('https://fr.le360.ma/', timeout=10),
                            step=60,
                            poll_forever=True,
                            ignore_exceptions=(
-                               requests.exceptions.ConnectionError,),
+                               requests.exceptions.ConnectionError,
+                               requests.exceptions.ReadTimeout,),
                            check_success=test)
     soup = bs4.BeautifulSoup(result.content, "lxml")
     content = soup.find("div", {"class": "post-holder"})
@@ -82,11 +85,12 @@ def le360_polling():
 
 def sport360_polling():
     links = []
-    result = polling2.poll(lambda: requests.get('https://sport.le360.ma/', timeout=5),
+    result = polling2.poll(lambda: requests.get('https://sport.le360.ma/', timeout=10),
                            step=60,
                            poll_forever=True,
                            ignore_exceptions=(
-                               requests.exceptions.ConnectionError,),
+                               requests.exceptions.ConnectionError,
+                               requests.exceptions.ReadTimeout,),
                            check_success=test)
     soup = bs4.BeautifulSoup(result.content, "lxml")
     content = soup.find("div", {"class": "page swiper-slide"})
@@ -105,11 +109,12 @@ def sport360_polling():
 
 def welovebuzz_polling():
     links = []
-    result = polling2.poll(lambda: requests.get('https://www.welovebuzz.com/', timeout=5),
+    result = polling2.poll(lambda: requests.get('https://www.welovebuzz.com/', timeout=10),
                            step=60,
                            poll_forever=True,
                            ignore_exceptions=(
-                               requests.exceptions.ConnectionError,),
+                               requests.exceptions.ConnectionError,
+                               requests.exceptions.ReadTimeout,),
                            check_success=test)
     soup = bs4.BeautifulSoup(result.content, "lxml")
     content = soup.find("div", {"class": "row"})
@@ -135,11 +140,12 @@ def welovebuzz_polling():
 def leseco_polling():
     links = []
     titles = []
-    result = polling2.poll(lambda: requests.get('https://leseco.ma/', timeout=5),
+    result = polling2.poll(lambda: requests.get('https://leseco.ma/', timeout=10),
                            step=60,
                            poll_forever=True,
                            ignore_exceptions=(
-                               requests.exceptions.ConnectionError,),
+                               requests.exceptions.ConnectionError,
+                               requests.exceptions.ReadTimeout,),
                            check_success=test)
     soup = bs4.BeautifulSoup(result.content, "lxml")
     content = soup.find("div", {"class": "slide"})

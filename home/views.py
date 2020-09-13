@@ -9,19 +9,16 @@ from home.processing import *
 import json
 import time
 import re
-import unicodedata
 # Create your views here.
-def strip_accents(s) :
-    return ''.join(c for c in unicodedata.normalize('NFD', s) if unicodedata.category(c) != 'Mn' )
+
 
 @csrf_exempt
 def home(request):
     if request.method == "POST":
         myDict = json.loads(request.body)['cat']
         mySearch = json.loads(request.body)['search']
+        # print(mySearch)
         mySearch = mySearch.lower()
-        mySearch = strip_accents(mySearch)
-        print(mySearch)
         cat_search = ["politique", "parlement", "economie", "tourisme", "bourse", "immobilier", "société", "rumeurs", "statistiques", "célébrité", "divertissement",
                       "monde", "culture", "terrorisme", "meteo", "education", "santé", "covid", "agriculture", "espace", "nature", "animaux", "religion", "revue"]
         cat2_search = ["parties politiques", "réseaux sociaux",
