@@ -122,3 +122,9 @@ LINE 1: ... "simp_comp", "title", "image", "source", "date", "article")...
 [2020-09-12-15:46:22]from le360 : <class 'TypeError'>'NoneType' object is not subscriptable<traceback object at 0x115F3DA8>
 [2020-09-12-15:47:22]from le360 : <class 'TypeError'>'NoneType' object is not subscriptable<traceback object at 0x0E2C0188>
 [2020-09-12-15:48:23]from le360 : <class 'TypeError'>'NoneType' object is not subscriptable<traceback object at 0x02760A48>
+[2020-09-13-21:29:06]from hespress : <class 'requests.exceptions.TooManyRedirects'>Exceeded 30 redirects.<traceback object at 0x013E7568>
+[2020-09-13-21:30:12]from hespress : <class 'requests.exceptions.TooManyRedirects'>Exceeded 30 redirects.<traceback object at 0x010B1188>
+[2020-09-13-21:31:18]from hespress : <class 'requests.exceptions.TooManyRedirects'>Exceeded 30 redirects.<traceback object at 0x013960A8>
+[2020-09-13-21:32:24]from hespress : <class 'requests.exceptions.TooManyRedirects'>Exceeded 30 redirects.<traceback object at 0x0131AEC8>
+[2020-09-13-21:33:30]from hespress : <class 'requests.exceptions.TooManyRedirects'>Exceeded 30 redirects.<traceback object at 0x0114ACE8>
+[2020-09-14-20:47:46]from le360 : <class 'requests.exceptions.ConnectionError'>('Connection aborted.', ConnectionAbortedError(10053, 'Une connexion établie a été abandonnée par un logiciel de votre ordinateur hôte', None, 10053, None))<traceback object at 0x110258C8>
