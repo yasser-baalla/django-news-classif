@@ -25,35 +25,35 @@ cat_dict = {
     "6": "tourisme",
     "7": "bourse",
     "8": "immobilier",
-    "9": "Football",
-    "10": "société",
-    "11": "réseaux_sociaux",
-    "12": "rumeurs",
-    "13": "statistiques",
-    "14": "célébrité",
-    "15": "divertissement",
-    "16": "monde",
-    "17": "culture",
-    "18": "santé",
-    "19": "covid",
-    "20": "agriculture",
-    "21": "espace",
-    "22": "Local_Trends",
-    "23": "loi_et_décret",
-    "24": "nature",
-    "25": "animaux",
-    "26": "eid_el_adha",
-    "27": "terrorisme",
-    "28": "meteo",
-    "29": "revue_de_presse",
-    "30": "revue_du_web",
-    "31": "blessures_accidents_et_décès",
-    "32": "education",
-    "33": "error",
-    "34": "sport",
-    "35": "science",
-    "36": "religion",
-    "37": "revue",
+    "9": "sport",
+    "10": "Football",
+    "11": "société",
+    "12": "réseaux_sociaux",
+    "13": "rumeurs",
+    "14": "statistiques",
+    "15": "célébrité",
+    "16": "divertissement",
+    "17": "monde",
+    "18": "culture",
+    "19": "santé",
+    "20": "covid",
+    "21": "science",
+    "22": "agriculture",
+    "23": "espace",
+    "24": "Local_Trends",
+    "25": "loi_et_décret",
+    "26": "nature",
+    "27": "animaux",
+    "28": "religion",
+    "29": "eid_el_adha",
+    "30": "terrorisme",
+    "31": "meteo",
+    "32": "revue_de_presse",
+    "33": "revue_du_web",
+    "34": "blessures_accidents_et_décès",
+    "35": "education",
+    "36": "error",
+    "37": "revue"
 }
 
 while True:
@@ -83,7 +83,7 @@ while True:
                     for i in range(len(id_cat)):
                         db_cat.append(cat_dict[str(id_cat[i])])
                     base_db = category(
-                        url=link, pos_neg=posneg, simp_comp=comsim, title=title, image=image, source=source)
+                        url=link, pos_neg=posneg, simp_comp=comsim, title=title, image=image, source=source, views=0)
                     cat_db = category_info()
                     for i in range(len(db_cat)):
                         setattr(cat_db, db_cat[i], True)
